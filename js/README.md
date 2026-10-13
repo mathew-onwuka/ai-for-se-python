@@ -1,6 +1,6 @@
 # Colony Orders — JavaScript
 
-A faithful port of the Python service in the repository root. Same domain, same
+A faithful port of the Python service in [`../python/`](../python/). Same domain, same
 HTTP contract (`../docs/api.md`), same house rules (`../docs/conventions.md`)
 and architecture decisions (`../docs/adr/`). Express stands in for FastAPI,
 Vitest for pytest, [decimal.js](https://mikemcl.github.io/decimal.js/) for
