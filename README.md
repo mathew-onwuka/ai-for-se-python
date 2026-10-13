@@ -2,7 +2,18 @@
 
 Orders, users, and payment reconciliation for the Colony storefront.
 
-## Running it
+This repository ships the same service in two languages. Both share the HTTP
+contract in `docs/api.md`, the house rules in `docs/conventions.md`, and the
+decisions in `docs/adr/`.
+
+- **Python** (FastAPI) — in `src/` and `tests/` at the repository root.
+- **JavaScript** (Express) — in `js/`. See `js/README.md`.
+
+Pick whichever you are working in; they are kept in step with each other.
+
+## Python
+
+### Running it
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -11,13 +22,24 @@ cp .env.example .env
 uvicorn src.main:app --reload
 ```
 
-## Tests
+### Tests
 
 ```bash
 pytest
 ```
 
-## Layout
+## JavaScript
+
+```bash
+cd js
+npm install
+npm test
+npm start
+```
+
+Full details in `js/README.md`.
+
+## Layout (Python)
 
 | Path | What lives there |
 |---|---|
