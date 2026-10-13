@@ -84,3 +84,14 @@ def test_required_fields_validator_names_what_is_missing():
 def test_non_empty_lines_validator_rejects_an_empty_order():
     with pytest.raises(ValidationError):
         NonEmptyLines().check({"customer_id": "c", "lines": []})
+
+def test_create_order_rejects_a_blank_customer_id(client):
+    response = client.post(
+        "/orders",
+        json={
+            "customer_id": "",
+            "currency": "GBP",
+            "lines": [{"sku": "a", "quantity": 1, "unit_price": "5.00"}],
+        },
+    )
+    assert response.status_code == 422
