@@ -3,6 +3,13 @@
 House rules for this service. If something here disagrees with a tutorial you
 found online, this file wins.
 
+Source for each implementation lives under its own directory — `python/` and
+`js/`. The paths below are written relative to an implementation root, so
+`src/<package>/models.py` means `python/src/...` for the FastAPI service and
+`js/src/.../models.js` for its Express port. The rules apply to both; where a
+rule names a Python tool (pydantic, pytest, the `logging` module), the JavaScript
+port follows the same intent with its own equivalent, documented in `js/README.md`.
+
 ## Layout
 
 - `src/<package>/models.py` — pydantic models only. No I/O, no business rules.
@@ -48,7 +55,8 @@ passing it through `settings_redacted` first.
 `pytest`, no classes, one behaviour per test. Test names read as sentences:
 `test_search_rejects_a_long_country_code`, not `test_search_2`.
 
-Fixtures live in `tests/conftest.py`. Tests never touch a real database.
+Fixtures live in `tests/conftest.py` (`js/test/helpers.js` and `setup.js` for
+the port). Tests never touch a real database.
 
 ## Style
 

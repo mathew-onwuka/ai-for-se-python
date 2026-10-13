@@ -19,7 +19,7 @@ because it is also a legitimate value in half the places it appears.
 ## Decision
 
 Every failure that crosses a module boundary is raised as a subclass of
-`AppError`, defined in `src/errors.py`:
+`AppError`, defined in `python/src/errors.py` (`js/src/errors.js` in the port):
 
 - `NotFoundError` — the entity does not exist
 - `ValidationError` — input failed a business rule or a shape check
@@ -42,4 +42,4 @@ An `except AppError` that returns `None` re-introduces exactly the problem
 this ADR removed. Treat one in review as a defect, not a style preference.
 
 Third-party exceptions are wrapped at the boundary — `sqlite3.Error` becomes
-`UpstreamError` in `src/common/db.py`, and does not escape that module.
+`UpstreamError` in `python/src/common/db.py`, and does not escape that module.
